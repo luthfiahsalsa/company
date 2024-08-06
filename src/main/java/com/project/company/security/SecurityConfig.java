@@ -18,6 +18,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests((request) -> request
                 .requestMatchers("/css/**").permitAll()
                         .requestMatchers("/user/**").permitAll()
+                        .requestMatchers("/api/v1/**").permitAll()
 //                .requestMatchers("/delivery/",
 //                        "/category/upsertForm",
 //                        "/category/delete",
