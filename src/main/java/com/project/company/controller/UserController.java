@@ -27,9 +27,7 @@ public class UserController {
     @GetMapping("/addUser")
     public String addUserFormPage(Model model) {
         UserModel user = new UserModel();
-        List<RoleModel> listRole = roleService.getListRole();
         model.addAttribute("user", user);
-        model.addAttribute("listRole", listRole);
         return "form-add-user";
     }
 

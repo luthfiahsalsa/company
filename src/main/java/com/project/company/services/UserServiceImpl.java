@@ -19,6 +19,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void addUser(UserModel user) {
         String password = encryptPassword(user.getPassword());
+        user.setRole("Calon Karyawan");
         user.setPassword(password);
         userDb.save(user);
     }

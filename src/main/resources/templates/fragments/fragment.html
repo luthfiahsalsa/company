@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <head th:fragment="css">
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <link rel="stylesheet" th:href="@{/css/style.css}" >
+    </head>
+</head>
+<body>
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand font-weight-bold text-primary" th:href="@{/}">Database</a>
+    <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+    >
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <a class="nav-item nav-link" th:href="@{/biodata/view}"
+               th:classappend="${pageBiodata} ? 'active' : 'null'" sec:authorize="hasAuthority('Calon Karyawan')">
+                Biodata<span th:id="${pageBiodata}" class="sr-only">(current)</span>
+            </a>
+
+            <a class="nav-item nav-link" th:href="@{/biodata/viewAll}"
+               th:classappend="${pageAllData} ? 'active' : 'null'" sec:authorize="hasAuthority('Admin')">
+                Data Calon Karyawan<span th:id="${pageAllBiodata}" class="sr-only">(current)</span>
+            </a>
+        </ul>
+        <ul class="navbar-nav pull-right">
+            <a class="nav-item nav-link active" th:href="@{/logout}">Logout</a>
+        </ul>
+    </div>
+</nav>
+</body>
+</html>

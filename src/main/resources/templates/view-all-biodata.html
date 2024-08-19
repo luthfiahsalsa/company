@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Calon Karyawan</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+</head>
+<body>
+<nav th:replace="fragments/fragment :: navbar"></nav>
+<div>
+    <h2 class="h2 font-weight-bold text-primary">Daftar Calon Karyawan</h2>
+    <br>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Tempat, Tanggal lahir</th>
+            <th scope="col">Posisi yang Dilamar</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="biodata, iterationStatus : ${listBiodata}">
+            <td th:text="${iterationStatus.count}"></td>
+            <td th:text="${biodata.nama}"></td>
+            <td th:text="${biodata.tempat_lahir} + ', ' + ${biodata.tanggal_lahir}"></td>
+            <td th:text="${biodata.posisi_yg_dilamar}"></td>
+            <td>
+                <a class="btn btn-primary btn-sm" th:href="@{/biodata/detail(idBiodata=${biodata.id})}">Lihat</a>
+                <a class="btn btn-light btn-sm" th:href="@{/biodata/update(idBiodata=${biodata.id})}">Ubah</a>
+                <br>
+                <a class="btn btn-danger btn-sm" th:href="@{/biodata/delete(idBiodata=${biodata.id})}">Hapus</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hapus</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+</head>
+<body>
+<nav th:replace="fragments/fragment :: navbar"></nav>
+<div class="card m-4 p-4">
+    <div class="card-body">
+        <h2 th:text="'Biodata calon karyawan dengan email ' + ${biodataModel.user.email} + ' berhasil hapus.'"></h2>
+        <br>
+        <a class="btn btn-light border-dark" th:href="@{/biodata/viewAll}">Kembali</a>
+    </div>
+</div>
+</body>
+</html>

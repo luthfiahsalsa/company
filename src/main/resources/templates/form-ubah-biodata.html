@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ubah</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+</head>
+<body>
+<nav th:replace="fragments/fragment :: navbar"></nav>
+<div>
+    <h2 class="h2 font-weight-bold text-primary">Biodata Calon Karyawan</h2>
+    <form th:action="@{/biodata/update}" th:object="${biodataModel}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <input type="hidden" th:field="*{user}" />
+        <div class="container-biodata">
+            <div class="section left-section">
+                <label >Email</label><br>
+                <input name="email" th:field="*{user.email}" disabled="disabled" class="form-control"><br>
+                <label>Posisi yang Dilamar</label><br>
+                <input name="posisi_yg_dilamar" th:value="*{posisi_yg_dilamar}" type="text" class="form-control"><br>
+                <label>Nama</label><br>
+                <input name="nama" type="text" th:value="*{nama}" class="form-control"><br>
+                <label>Nomor KTP</label><br>
+                <input name="no_ktp" type="text" th:value="*{no_ktp}" class="form-control"><br>
+                <label>Tempat Lahir</label><br>
+                <input name="tempat_lahir" type="text" th:value="*{no_telp}" class="form-control"><br>
+                <label>Tanggal Lahir</label><br>
+                <input name="tanggal_lahir" type="date" th:value="*{tanggal_lahir}" class="form-control"><br>
+                <label>Jenis Kelamin</label><br>
+                <input name="jenis_kelamin" type="text" th:value="*{jenis_kelamin}" class="form-control"><br>
+                <label>Agama</label><br>
+                <input name="agama" type="text" th:value="*{agama}" class="form-control"><br>
+                <label>Status Pernikahan</label><br>
+                <input name="status" type="text" th:value="*{status}" class="form-control"><br>
+            </div>
+            <div class="section right-section">
+                <label>No Telp</label><br>
+                <input name="no_telp" type="text" th:value="*{no_telp}" class="form-control"><br>
+                <label>Nomor Telepon Darurat</label><br>
+                <input name="emergency_call" type="text" th:value="*{emergency_call}" class="form-control"><br>
+                <label>Alamat KTP</label><br>
+                <textarea name="alamat_ktp" type="text" th:field="*{alamat_ktp}" class="form-control" rows="2"></textarea><br>
+                <label>Alamat Tinggal</label><br>
+                <textarea name="alamat_tinggal" type="text" th:field="*{alamat_tinggal}" class="form-control" rows="2"></textarea><br>
+                <label>Skill</label><br>
+                <textarea class="form-control" name="skill" th:field="*{skill}" type="text" rows="3"></textarea><br>
+                <label>Bersedia Ditempatan di Seluruh Kantor Perusahaan</label><br>
+                <select name="bersedia_ditempatkan" th:value="*{bersedia_ditempatkan}" class="form-control">
+                    <option th:value="0" th:text="Ya"></option>
+                    <option th:value="1" th:text="Tidak"></option>
+                </select><br>
+                <label>Penghasilan yang Diharapkan</label><br>
+                <input name="ekspektasi_penghasilan" type="number" th:value="*{ekspektasi_penghasilan}" class="form-control"><br>
+            </div>
+        </div>
+        <br><br>
+        <div class="container-biodata" th:field="*{pendidikan}">
+            <input type="hidden" th:field="*{pendidikan}" />
+            <div class="section left-section">
+                <h4 class="font-weight-bold"  >Pendidikan Terakhir</h4>
+                <br>
+                <label>Jenjang Pendidikan Terakhir</label><br>
+                <input name="jenjang" type="text" th:value="*{pendidikan.jenjang}" class="form-control"><br>
+                <label>Nama Institusi Akademik</label><br>
+                <input name="nama_institusi" type="text" th:value="*{pendidikan.nama_institusi}" class="form-control"><br>
+                <label>Jurusan</label><br>
+                <input name="jurusan" type="text" th:value="*{pendidikan.jurusan}" class="form-control"><br>
+                <label>Tahun Lulus</label><br>
+                <input name="tahun_lulus" type="number" th:value="*{pendidikan.tahun_lulus}" class="form-control"><br>
+                <label>IPK</label><br>
+                <input name="ipk" type="text" th:value="*{pendidikan.ipk}" class="form-control"><br>
+            </div>
+        </div>
+        <div class="container-biodata">
+            <div class="section left-section">
+                <h4 class="font-weight-bold">Riwayat Pelatihan</h4>
+                <br>
+                <button class="btn-primary" type="button">Tambah</button><br>
+                <label>Nama Kursus/Seminar</label><br>
+                <input name="nama_pelatihan" type="text" class="form-control"><br>
+                <label>Sertifikat (Ada/Tidak) </label><br>
+                <input type="radio" name="sertifikat" value="Ada" id="3"/>
+                <label for="3">Ada</label>
+                <input type="radio" name="bersedia_Ditempatkan" value="Tidak" id="4"/>
+                <label for="4">Tidak</label><br>
+                <label>Tahun</label><br>
+                <input name="tahun" type="number" class="form-control"><br>
+            </div>
+        </div>
+        <button class="form-button" type="submit">Simpan</button>
+    </form>
+</div>
+</body>
+</html>

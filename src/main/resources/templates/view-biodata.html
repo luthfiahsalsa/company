@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Biodata</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+</head>
+<body>
+<nav th:replace="fragments/fragment :: navbar"></nav>
+<div>
+    <h2 class="h2 font-weight-bold text-primary"> Biodata </h2>
+    <div class="container-biodata">
+        <div class="section left-section">
+            <label >Email</label><br>
+            <input th:value="${biodataModel.user.email}" disabled="disabled" class="form-control"><br>
+            <label >Role</label><br>
+            <input th:value="${biodataModel.user.role}" disabled="disabled" class="form-control"><br>
+            <label>Posisi yang Dilamar</label><br>
+            <input th:value="${biodataModel.posisi_yg_dilamar}" disabled="disabled" class="form-control"><br>
+            <label>Nama</label><br>
+            <input th:value="${biodataModel.nama}" disabled="disabled" class="form-control"><br>
+            <label>Nomor KTP</label><br>
+            <input th:value="${biodataModel.no_ktp}" disabled="disabled" class="form-control"><br>
+            <label>Tempat Lahir</label><br>
+            <input th:value="${biodataModel.tempat_lahir}" disabled="disabled" class="form-control"><br>
+            <label>Tanggal Lahir</label><br>
+            <input th:value="${biodataModel.tanggal_lahir}" disabled="disabled" class="form-control"><br>
+            <label>Jenis Kelamin</label><br>
+            <input th:value="${biodataModel.jenis_kelamin}" disabled="disabled" class="form-control"><br>
+            <label>Agama</label><br>
+            <input th:value="${biodataModel.agama}" disabled="disabled" class="form-control"><br>
+            <label>Status Pernikahan</label><br>
+            <input th:value="${biodataModel.status}" disabled="disabled" class="form-control"><br>
+        </div>
+        <div class="section right-section">
+            <label>No Telp</label><br>
+            <input th:value="${biodataModel.no_telp}" disabled="disabled" class="form-control"><br>
+            <label>Nomor Telepon Darurat</label><br>
+            <input th:value="${biodataModel.emergency_call}" disabled="disabled" class="form-control"><br>
+            <label>Alamat KTP</label><br>
+            <textarea th:field="${biodataModel.alamat_ktp}" disabled="disabled" class="form-control" rows="2"></textarea><br>
+            <label>Alamat Tinggal</label><br>
+            <textarea th:field="${biodataModel.alamat_tinggal}" disabled="disabled" class="form-control" rows="2"></textarea><br>
+            <label>Skill</label><br>
+            <textarea class="form-control" disabled="disabled" th:field="${biodataModel.skill}" rows="3"></textarea><br>
+            <label>Bersedia Ditempatan di Seluruh Kantor Perusahaan</label><br>
+            <p th:if="${biodataModel.bersedia_ditempatkan} == false" th:text="'Ya'"></p>
+            <p th:if="${biodataModel.bersedia_ditempatkan} == true" th:text="'Tidak'"></p>
+            <label>Penghasilan yang Diharapkan</label><br>
+            <input disabled="disabled" th:value="${biodataModel.ekspektasi_penghasilan}" class="form-control"><br>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br>
+    <div>
+        <h3>Pendidikan Terakhir</h3>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Jenjang</th>
+                <th scope="col">Nama Institusi</th>
+                <th scope="col">Jurusan</th>
+                <th scope="col">Tahun Lulus</th>
+                <th scope="col">IPK</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${biodataModel.pendidikan.jenjang}"></td>
+                <td th:text="${biodataModel.pendidikan.nama_institusi}"></td>
+                <td th:text="${biodataModel.pendidikan.jurusan}"></td>
+                <td th:text="${biodataModel.pendidikan.tahun_lulus}"></td>
+                <td th:text="${biodataModel.pendidikan.ipk}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col"><a class="btn btn-light border-dark" th:href="@{/biodata/viewAll}" style="width: 100%; margin-left: 10px">Kembali</a></div>
+        <div class="col"><a class="btn btn-primary" style="width: 100%" th:href="@{/biodata/update(idBiodata=${biodataModel.id})}" sec:authorize="hasAuthority('Admin')">Ubah</a></div>
+        <div class="col"><a class="btn btn-danger" style="width: 96%" th:href="@{/biodata/delete(idBiodata=${biodataModel.id})}" sec:authorize="hasAuthority('Admin')">Hapus</a></div>
+    </div>
+    <br>
+</div>
+</body>
+</html>

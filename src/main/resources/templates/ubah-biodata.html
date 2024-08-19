@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ubah Biodata</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+</head>
+<body>
+<nav th:replace="fragments/fragment :: navbar"></nav>
+<h2 th:text="'Anda berhasil mengubah biodata calon karyawan dengan email ' + ${biodataModel.user.email}"></h2>
+<a class="btn btn-light border-dark" th:href="@{/biodata/viewAll}">Kembali</a>
+</body>
+</html>

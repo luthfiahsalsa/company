@@ -39,9 +39,9 @@ public class UserModel {
     @Column(name="role")
     private String role;
 
-//    @OneToOne
-//    @JoinColumn(name = "id_biodata", referencedColumnName = "id")
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-//    private BiodataModel biodata;
+    @OneToOne
+    @JoinColumn(name = "id_biodata", referencedColumnName = "id", nullable = true)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
+    private BiodataModel biodata;
 
 }

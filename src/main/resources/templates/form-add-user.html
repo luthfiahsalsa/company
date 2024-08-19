@@ -14,16 +14,13 @@
 <div class="container">
     <h2>Pendaftaran Calon Karyawan</h2>
     <form th:action="@{/user/addUser}" th:object="${user}" method="post">
-        <label>Role</label>
-        <select name="role" class="form-control">
-            <option selected value=""> Pilih Role </option>
-            <option th:each="roleAvailable : ${listRole}" th:value="${roleAvailable.role}" th:text="${roleAvailable.role}"></option>
-        </select><br>
         <label>Email</label><br>
-        <input name="email" type="text" class="form-control"><br>
+        <input name="email" type="text" ><br>
         <label>Password</label><br>
-        <input name="password" type="password" class="form-control"><br>
+        <input name="password" type="password" ><br>
         <button type="submit">Daftar</button>
+        <br><br>
+        <h4><a th:href="@{/user/loginForm}">Sudah terdaftar? Silakan Login</a></h4>
     </form>
 </div>
 </body>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biodata</title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+</head>
+<body>
+<nav th:replace="fragments/fragment :: navbar"></nav>
+<div>
+    <h2 class="h2 font-weight-bold text-primary">Biodata Calon Karyawan</h2>
+    <form th:action="@{/biodata/add}" th:object="${biodata}" method="post">
+        <div class="container-biodata">
+            <div class="section left-section">
+                <label >Email</label><br>
+                <input name="email" th:field="*{user.email}" disabled="disabled" class="form-control"><br>
+                <label>Posisi yang Dilamar</label><br>
+                <input name="posisi_yg_dilamar" type="text" class="form-control"><br>
+                <label>Nama</label><br>
+                <input name="nama" type="text" class="form-control"><br>
+                <label>Nomor KTP</label><br>
+                <input name="no_ktp" type="text" class="form-control"><br>
+                <label>Tempat Lahir</label><br>
+                <input name="tempat_lahir" type="text" class="form-control"><br>
+                <label>Tanggal Lahir</label><br>
+                <input name="tanggal_lahir" type="date" class="form-control"><br>
+                <label>Jenis Kelamin</label><br>
+                <input name="jenis_kelamin" type="text" class="form-control"><br>
+                <label>Agama</label><br>
+                <input name="agama" type="text" class="form-control"><br>
+                <label>Status Pernikahan</label><br>
+                <input name="status" type="text" class="form-control"><br>
+            </div>
+            <div class="section right-section">
+                <label>No Telp</label><br>
+                <input name="no_telp" type="text" class="form-control"><br>
+                <label>Nomor Telepon Darurat</label><br>
+                <input name="emergency_call" type="text" class="form-control"><br>
+                <label>Alamat KTP</label><br>
+                <textarea name="alamat_ktp" type="text" class="form-control" rows="2"></textarea><br>
+                <label>Alamat Tinggal</label><br>
+                <textarea name="alamat_tinggal" type="text" class="form-control" rows="2"></textarea><br>
+                <label>Skill</label><br>
+                <textarea class="form-control" name="skill" type="text" rows="3"></textarea><br>
+                <label>Bersedia Ditempatan di Seluruh Kantor Perusahaan</label><br>
+                <select name="bersedia_ditempatkan" th:field="*{bersedia_ditempatkan}" class="form-control">
+                    <option selected value=""> Pilih... </option>
+                    <option th:value="0" th:text="Ya"></option>
+                    <option th:value="1" th:text="Tidak"></option>
+                </select><br>
+                <label>Penghasilan yang Diharapkan</label><br>
+                <input name="ekspektasi_penghasilan" type="number" class="form-control"><br>
+            </div>
+        </div>
+        <br><br><br><br>
+        <div class="container-biodata" th:field="*{pendidikan}">
+            <div class="section left-section">
+                <h4 class="font-weight-bold">Pendidikan Terakhir</h4>
+                <br>
+                <label>Jenjang Pendidikan Terakhir</label><br>
+                <input name="jenjang" type="text" class="form-control"><br>
+                <label>Nama Institusi Akademik</label><br>
+                <input name="nama_institusi" type="text" class="form-control"><br>
+                <label>Jurusan</label><br>
+                <input name="jurusan" type="text" class="form-control"><br>
+                <label>Tahun Lulus</label><br>
+                <input name="tahun_lulus" type="number" class="form-control"><br>
+                <label>IPK</label><br>
+                <input name="ipk" type="text" class="form-control"><br>
+            </div>
+        </div>
+        <div class="container-biodata" th:field="*{listPelatihan}">
+            <div class="section left-section">
+                <h4 class="font-weight-bold">Riwayat Pelatihan</h4>
+                <br>
+                <label>Nama Pelatihan</label><br>
+                <input name="nama_pelatihan" type="text" class="form-control"><br>
+                <label>Sertifikat</label><br>
+                <input name="sertifikat" type="text" class="form-control"><br>
+                <label>Tahun</label><br>
+                <input name="tahun" type="number" class="form-control"><br>
+
+            </div>
+        </div>
+        <button class="form-button" type="submit">Simpan</button>
+    </form>
+</div>
+</body>
+</html>

@@ -13,12 +13,15 @@
 </div>
 <div class="container">
     <h2>Login</h2>
+    <div th:if="${param.error}">
+        <span style="color: red">Username atau password salah</span>
+    </div><br>
     <form th:action="@{/authenticating}" method="post">
         <label>Email</label><br>
         <input name="email" type="text"><br>
         <label>Password</label><br>
         <input name="password" type="password"><br>
-        <button type="submit">Login</button><br>
+        <button type="submit">Login</button><br><br>
         <h4><a th:href="@{/user/addUser}">Anda belum terdaftar? Klik Daftar</a></h4>
     </form>
 </div>

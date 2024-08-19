@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head>
     <meta charset="UTF-8">
     <title>Halaman Daftar</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" th:href="@{/css/style.css}" >
 </head>
+
 <body>
-Selamat
+<div class="container-flex">
+    <h2 th:text="'Pengguna dengan email ' + ${email} + ' berhasil ditambahkan'"> </h2>
+    <br>
+    <button><a th:href="@{/user/loginForm}">Login</a></button>
+</div>
 </body>
 </html>

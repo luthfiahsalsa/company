@@ -1,5 +1,6 @@
 package com.project.company.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
@@ -46,6 +47,7 @@ public class BiodataModel implements Serializable {
     private String tempat_lahir;
 
     @NotNull
+    @Temporal(TemporalType.DATE)
     @Column(name = "tanggal_lahir")
     private Date tanggal_lahir;
 
@@ -97,11 +99,16 @@ public class BiodataModel implements Serializable {
     @Column(name = "ekspektasi_penghasilan")
     private Long ekspektasi_penghasilan;
 
-//    @OneToOne(mappedBy = "biodata", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    private UserModel user;
+    @NotNull
+    @Column(name = "posisi_yg_dilamar")
+    private String posisi_yg_dilamar;
+
+    @OneToOne(mappedBy = "biodata", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
+    private UserModel user;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_pendidikan", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_pendidikan", referencedColumnName = "id", nullable = true)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private PendidikanTerakhirModel pendidikan;
 

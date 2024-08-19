@@ -32,7 +32,7 @@ body{
 .container h2{
     text-align: left;
     color: #fafafa;
-    margin-bottom: 30px;
+    margin-bottom: 17px;
     text-transform: uppercase;
     border-bottom: 4px solid #2979ff;
 }
@@ -40,6 +40,11 @@ body{
 .container h4 {
     color: #fafafa;
 }
+
+.container a {
+    color: #fafafa;
+}
+
 .container label{
     text-align: left;
     color: #90caf9;}
@@ -62,4 +67,74 @@ body{
     background-color:#2979ff;
     font-size: 18px;
     color: #fafafa;
+}
+
+.container-flex {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    padding: 20px 25px;
+    width: 300px;
+
+    background-color: rgba(0,0,0,.7);
+    box-shadow: 0 0 10px rgba(255,255,255,.3);
+}
+
+.container-flex button {
+    width: 100%;
+    padding: 5px 0;
+    border: none;
+    background-color:#2979ff;
+    font-size: 18px;
+    color: #fafafa;
+}
+
+.container-flex h2 {
+    color: #fafafa;
+}
+
+.container-flex a {
+    color: #fafafa;
+
+}
+
+/*Biodata*/
+
+.container-biodata {
+    display: flex;
+    height: 100vh; /* Adjust height as needed */
+}
+
+.section {
+    flex: 1;
+    padding: 20px;
+    width: 10px;
+}
+.form-button{
+    width: 60%;
+    padding: 5px 0;
+    border: none;
+    background-color:#2979ff;
+    font-size: 18px;
+    color: #fafafa;
+}
+.section label{
+    text-align: left;
+    color: #3b3131;}
+
+.left-section {
+    box-shadow: 0 0 10px rgba(255,255,255,.3);
+}
+
+.right-section {
+    box-shadow: 0 0 10px rgba(255,255,255,.3);
+}
+.h2{
+    padding-top: 10px;
+    left: 50%;
+    text-align: center;
+    margin-bottom: 17px;
+    text-transform: uppercase;
+    border-bottom: 4px solid #2979ff;
 }
